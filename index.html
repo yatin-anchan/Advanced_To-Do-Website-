@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple yet advanced project that is not built on django but a simple javascript and is available offline too">
+    <title>Advanced To-Do App</title>
+
+    <!-- Bootstrap & Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div>
+            <div class="close-btn" onclick="toggleSidebar()">×</div>
+            <h3>Menu</h3>
+            <ul>
+                <li>Pending</li>
+                <li>Completed</li>
+                <li>Recents</li>
+                <li>Labels</li>
+                <li>Starred</li>
+                <li>Reminders</li>
+                <li>Confidential</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <span class="material-icons nav-icon" onclick="toggleSidebar()">menu</span>
+        <h1 class="header-title">To-Do Website</h1>
+        <div class="theme-toggle-container">
+            <span class="material-icons theme-toggle" id="themeIcon" onclick="toggleTheme()">dark_mode</span>
+        </div>
+    </div>
+    
+    <div id="workspace">
+    <div id="taskContainer">
+    <!-- Tasks will be dynamically added here -->
+</div></div>
+
+    <!-- Popup Menu -->
+<div class="popup-menu" id="popupMenu">
+    <h2>Create New Task</h2>
+<hr>
+    <!-- Scrollable Container -->
+    <div class="popup-content">
+        <form id="createTaskForm">
+            <!-- Task Title -->
+            <div class="form-group">
+                <label for="taskTitle">Task Title</label>
+                <input type="text" id="taskTitle" class="form-control" placeholder="E.g., Complete Django Authentication" required>
+            </div>
+            <br>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="taskDescription">Description (Optional)</label>
+                <textarea id="taskDescription" class="form-control" placeholder="Add more details about the task..." rows="4"></textarea>
+            </div><br>
+
+            <!-- Due Date -->
+            <div class="form-group">
+                <label for="dueDate">Due Date</label>
+                <input type="datetime-local" id="dueDate" class="form-control">
+            </div><br>
+
+            <!-- Priority Level -->
+            <div class="form-group">
+                <label for="priorityLevel">Priority Level</label>
+                <select id="priorityLevel" class="form-control" required>
+                    <option value="high">High (Urgent)</option>
+                    <option value="medium">Medium (Important but not urgent)</option>
+                    <option value="low">Low (Can be done later)</option>
+                </select>
+            </div><br>
+
+            <!-- Category/Tags -->
+            <div class="form-group">
+                <label for="taskTags">Category/Tags (Optional)</label>
+                <input type="text" id="taskTags" class="form-control" placeholder="E.g., Development, Bug Fix, UI Design">
+            </div><br>
+
+            <!-- Attachments -->
+            <div class="form-group">
+                <label for="attachments">Attachments (Optional)</label>
+                <input type="file" id="attachments" class="form-control">
+            </div><br>
+
+            <!-- Reminder Notification -->
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="reminderNotification">
+                <label class="form-check-label" for="reminderNotification">Enable Reminder Notification</label>
+            </div><br>
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Task</button>
+                <button type="button" class="btn btn-secondary" onclick="togglePopup()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <span class="material-icons nav-icon" onclick="toggleSidebar()">widgets</span>
+        <span class="material-icons nav-icon" id="plusButton" onclick="togglePopup()">add_circle</span>
+        <span class="material-icons nav-icon" onclick="logout()">account_circle</span>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html> 
